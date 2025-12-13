@@ -1,0 +1,48 @@
+body {
+  background-color: rgba(243, 238, 238, 0.73);
+}
+
+h1 {
+  color: red;
+}
+.pizza-card {
+  background: #fff;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.pizza-flex {
+  display: flex;
+  gap: 10px;
+}
+.pizza-container {
+  margin: 0 auto;
+  width: 50%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+.pizza-card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+
+/* SOLD OUT */
+.pizza-card.sold-out {
+  background: #f0f0f0;
+  color: #999;
+  opacity: 0.6;
+}
+
+.pizza-card.sold-out img {
+  filter: grayscale(100%);
+}
+
+.sold-label {
+  font-weight: bold;
+  color: red;
+}
