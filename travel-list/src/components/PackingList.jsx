@@ -1,47 +1,32 @@
-import { useState } from "react";
-import Item from "./Item";
+import React from "react";
 
-export default function PackingList({
-  items,
-  onDeleteItems,
-  onToggleItems,
-  onClearList,
-}) {
-  const [sortBy, setSortBy] = useState("input");
+const initialItems = [
+  { id: 1, description: "Passports", quantity: 2, packed: false },
+  { id: 2, description: "Socks", quantity: 12, packed: true },
+  { id: 3, description: "Charger", quantity: 1, packed: false },
+];
 
-  let sortedItem;
-  if (sortBy === "input") sortedItem = items;
-  if (sortBy === "description")
-    sortedItem = items
-      .slice()
-      .sort((a, b) => a.description.localeCompare(b.description));
-  if (sortBy === "packed")
-    sortedItem = items
-      .slice()
-      .sort((a, b) => Number(a.packed) - Number(b.packed));
-
+function PackingList() {
   return (
     <div className="list">
       <ul>
-        {sortedItem.map((item) => (
-          <Item
-            item={item}
-            onDeleteItems={onDeleteItems}
-            onToggleItems={onToggleItems}
-            key={item.id}
-          />
+        {initialItems.map((item) => (
+          <Item key={item.id} item={item} />
         ))}
       </ul>
-
-      <div className="actions">
-        <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
-          <option value="input">Sort by the input order</option>
-          <option value="description">Sort by description</option>
-          <option value="packed">Sort by packed status</option>
-        </select>
-
-        <button onClick={onClearList}>Clear list</button>
-      </div>
     </div>
   );
 }
+
+function Item({ item }) {
+  return (
+    <li>
+      <span style={item.packed ? { textDecoration: "line-through" } : {}}>
+        {item.quantity} {item.description}
+      </span>
+      <button>❌</button>
+    </li>
+  );
+}
+
+export default PackingList;
