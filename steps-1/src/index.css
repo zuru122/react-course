@@ -62,7 +62,7 @@ body {
 
 .buttons button {
   border: none;
-  outline:none;l
+  outline: none;
   cursor: pointer;
   padding: 10px 15px;
   border-radius: 100px;
@@ -92,7 +92,7 @@ h3 {
   background: none;
   cursor: pointer;
   font-size: 40px;
-  color: inherit; 
+  color: inherit;
 }
 
 .close:hover {

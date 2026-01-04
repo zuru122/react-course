@@ -45,58 +45,27 @@ function App() {
             )}
           </div>
 
-          {/* <p className="message">
+          <p className="message">
             Step {currentIndex + 1}: {messages[currentIndex]}
-          </p> */}
-
-          <StepMessage step={currentIndex + 1}>
-            {messages[currentIndex]}
-          </StepMessage>
+          </p>
 
           <div className="buttons">
-            <Button
-              bgColor="#7950f2"
-              textColor="#fff"
+            <button
               onClick={prevMessage}
-              // text="Previous"
-              // emoji="👈"
+              style={{ backgroundColor: "#7950f2", color: "#fff" }}
             >
-              <span>👈</span> Previous
-            </Button>
-
-            <Button
-              bgColor="#7950f2"
-              textColor="#fff"
+              Previous
+            </button>
+            <button
               onClick={nextMessage}
-              // text="Next"
-              // emoji="👉"
+              style={{ backgroundColor: "#7950f2", color: "#fff" }}
             >
-              Next <span>👉</span>
-            </Button>
+              Next
+            </button>
           </div>
         </div>
       )}
     </>
-  );
-}
-
-function Button({ textColor, bgColor, onClick, children }) {
-  return (
-    <button
-      style={{ backgroundColor: bgColor, color: textColor }}
-      onClick={onClick}
-    >
-      {children}
-    </button>
-  );
-}
-
-function StepMessage({ step, children }) {
-  return (
-    <div className="message">
-      <h3>Step {step}</h3>
-      {children}
-    </div>
   );
 }
 
